@@ -1,4 +1,4 @@
-# Rapid User Parameter Boilerplate
+# Rapid User Parameters
 
 This is an example project for rapid prototyping in JUCE for user parameter management with smoothing integrated with the processorTree.
 
