@@ -1,42 +1,40 @@
-This is an example project for rapid prototyping boiler-plate in Juce for user parameter management with smoothing integrated with the processorTree.
+# JUCE Rapid Prototyping Boilerplate
 
-#Setup
-1. Drag Parameter Folder into your project, or include in projucer.
+This is an example project for rapid prototyping boilerplate in JUCE for user parameter management with smoothing integrated with the processorTree.
 
-2. In the PluginEditor.h and PluginProcessor.h 
-include "../Source/parameters/include.h"
+## Setup
 
-3. define in Projucer,Exporters under Extra Preprocessor Definitions SMOOTHING_ENABLED=1
-if you would like to use the smoothing array 256 samples by default or change the amount of smoothing samples in treeProcessor.h under SMOOTHING_SAMPLES
+- Drag `Parameter` folder into your project, or include in Projucer.
+- In `PluginEditor.h` and `PluginProcessor.h`, include `"../Source/parameters/include.h"`.
+- Define in Projucer, Exporters under Extra Preprocessor Definitions `SMOOTHING_ENABLED=1` if you would like to use the smoothing array (256 samples by default) or change the amount of smoothing samples in `treeProcessor.h` under `SMOOTHING_SAMPLES`.
 
-#User Parameter Setup
-1. In the userParams.h list your sliders in userParams::userParameters
-    a. leave for kParam_NumParameters at the end for array control
-2. in ParameterINFO update values with optional skewing in parameterRange
-3. Define param type in userControlType, only supports slider
-4. Define userParameterID for tree state
-5. Define userParameterName for daw display
+## User Parameter Setup
 
-/*WARNING*/
-Steps 2-5 must have the same amount of elements that the userParameters has not counting kParam_NumParameters.
+1. In `userParams.h`, list your sliders in `userParams::userParameters`.
+   - Leave space for `kParam_NumParameters` at the end for array control.
+2. In `ParameterINFO`, update values with optional skewing in `parameterRange`.
+3. Define param type in `userControlType` (only supports slider).
+4. Define `userParameterID` for tree state.
+5. Define `userParameterName` for DAW display.
 
-#Processor
-1. replace juce::AudioProcessor with Params::treeProcessor
-/* reference the prepareForPlay & processBlock in PluginProcessor.cpp for parameter usage examples.
+**WARNING:** Steps 2-5 must have the same number of elements as `userParameters` (excluding `kParam_NumParameters`).
 
-treeProcessor.h for functions available, mirrored to
-juce::SmoothedValue<float>
-*/
- 
-#Editor
-1. in PluginEditor.h in your EDITOR inherit from 
-public Params::editorTree
-2. in PluginEditor.cpp pass in a reference to the processor
-editorTree(p)
+## Processor
 
-/* reference the constructor in PluginEditor.cpp for usage example*/
+Replace `juce::AudioProcessor` with `Params::treeProcessor`.
+- Reference the `prepareForPlay` and `processBlock` in `PluginProcessor.cpp` for parameter usage examples.
+- `treeProcessor.h` for functions available, mirrored to `juce::SmoothedValue`.
 
-#To-Do
-1. save and load encrypted presets
-2. support different types of buttons and displays
-// ========= \\
+## Editor
+
+1. In `PluginEditor.h`, in your editor, inherit from `public Params::editorTree`.
+2. In `PluginEditor.cpp`, pass in a reference to the processor `editorTree(p)`.
+
+Refer to the constructor in `PluginEditor.cpp` for usage examples.
+
+## To-Do
+
+- Save and load encrypted presets.
+- Support different types of buttons and displays.
+
+// ========= \
