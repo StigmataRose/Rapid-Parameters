@@ -1,6 +1,6 @@
-# JUCE Rapid Prototyping Boilerplate
+# Rapid User Parameter Boilerplate
 
-This is an example project for rapid prototyping boilerplate in JUCE for user parameter management with smoothing integrated with the processorTree.
+This is an example project for rapid prototyping in JUCE for user parameter management with smoothing integrated with the processorTree.
 
 ## Setup
 
@@ -25,7 +25,9 @@ This is an example project for rapid prototyping boilerplate in JUCE for user pa
 ## Processor
 
 1. Replace `juce::AudioProcessor` with 
-```Params::treeProcessor``` 
+```
+Params::treeProcessor
+``` 
 in 'PluginProcessor.h'.
 2. Reference the `prepareForPlay` and `processBlock` in `PluginProcessor.cpp` for parameter usage examples.
 3. Reference `treeProcessor.h` for functions available, mirrored to `juce::SmoothedValue` by auto-array indexing.
@@ -33,9 +35,13 @@ in 'PluginProcessor.h'.
 ## Editor
 
 1. In `PluginEditor.h`, in your editor, inherit from 
-```public Params::editorTree```
+```
+public Params::editorTree
+```
 2. In `PluginEditor.cpp`, pass in a reference to the processor 
-```editorTree(p)```
+```
+editorTree(p)
+```
 
 Refer to the constructor in `PluginEditor.cpp` for usage examples.
 
