@@ -17,7 +17,7 @@ This is an example project for rapid prototyping boilerplate in JUCE for user pa
 4. Define `userParameterID` for tree state.
 5. Define `userParameterName` for DAW display.
 
-**WARNING:** Steps 2-5 must have the same number of elements as `userParameters` (excluding `kParam_NumParameters`).
+*<sub>**WARNING:** Steps 2-5 must have the same number of elements as \`userParameters\` (excluding \`kParam_NumParameters\`).</sub>*
 
 ## Processor
 
